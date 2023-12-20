@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@page import="conferencia.TicketCompra"%>
 <%@page import="conferencia.TicketDAO"%>
 <%@page import="java.util.List"%>
@@ -63,15 +62,19 @@
 						  	<td class="text-center"><%=resultado.get(x).getCant()%></td>
 						  	<td><%=tipoTicketTexto%></td>
 						  	<td>$<%=resultado.get(x).getTotal_facturado()%></td>
-						  	<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-regular fa-trash-can" style="color:#dc3545;"></i></a></td>
+						  	<td class="text-center">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#eliminarModal<%=resultado.get(x).getId()%>">
+                                    <i class="fa-regular fa-trash-can" style="color:#dc3545;"></i>
+                                </a>
+                            </td>
 						</tr>
 						
 						<!-- Modal -->
-						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal fade" id="eliminarModal<%=resultado.get(x).getId()%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
 						  <div class="modal-dialog modal-dialog-centered">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <h3 class="modal-title fs-5" id="staticBackdropLabel">Eliminar registro</h3>
+						        <h3 class="modal-title fs-5" id="eliminarModalLabel">Eliminar registro</h3>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body">
