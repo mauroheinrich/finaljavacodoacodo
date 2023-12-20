@@ -45,7 +45,7 @@
 							<td><%=resultadoOrador.get(x).getId()%></td>
 						  	<td><%=resultadoOrador.get(x).getNombre()%></td>
 						  	<td><%=resultadoOrador.get(x).getApellido()%></td>
-						  	<td><%=resultadoOrador.get(x).getMsj()%></td>
+						  	<td><%=resultadoOrador.get(x).getTematica()%></td>
 						  	<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-regular fa-trash-can" style="color:#dc3545;"></i></a></td>
 						</tr>
 					
@@ -79,7 +79,7 @@
 		<div class="row">
 			<div class="col">
 				<a class="btn btn-success my-3" href="FrontController?accion=backoffice">Volver</a>
-				<a class="btn btn-primary my-3" href="FrontController?accion=volver">Ir al sitio web</a>
+				<a class="btn btn-primary my-3" href="FrontController?accion=volver">Página Principal</a>
 			</div>
 		</div>
 	</div>

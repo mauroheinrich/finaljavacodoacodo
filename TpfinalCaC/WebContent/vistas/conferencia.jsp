@@ -55,8 +55,8 @@
                     tenemos
                     para ti. Te esperamos!</p>
                 <div class="buttonarea">
-                    <a class="btn btn-transparent" href="#speakers">Quiero ser orador</a>
-                    <a class="btn btn-solid" href="#tickets">Comprar tickets</a>
+                    <a class="btn btn-transparent" href="#form">Quiero ser orador</a>
+                    <a class="btn btn-solid" href="FrontController?accion=comprar">Comprar tickets</a>
                 </div>
             </div>
         </div>
@@ -130,12 +130,12 @@
             hablar!</h3>
     </div>
     <div class="container-form">
-        <form action="">
+        <form action="FrontController?accion=insertarOrador" method= "POST">
             <div class="first-last-name">
-                <input type="text" class="input-name" name="input-firtname" placeholder="Nombre" required>
-                <input type="text" class="input-name" name="input-lastname" placeholder="Apellido" required> 
+                <input type="text" class="input-name" name="nombreOrador" placeholder="Nombre" required>
+                <input type="text" class="input-name" name="apellidoOrador" placeholder="Apellido" required> 
             </div>
-            <textarea class="input-about" name="input-about" id="" cols="30" rows="6" placeholder="Sobre qué quieres hablar?" required></textarea>
+            <textarea class="input-about" name="tematicaOrador" id="" cols="30" rows="6" placeholder="Sobre qué quieres hablar?" required></textarea>
             <h6 class="recordatorio">Recuerda incluir un título para tu charla</h6>
             <input class="btn-submit" type="submit" value="Enviar">
         </form>

@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
                     <a class="nav-link" href="FrontController#container-cta">El lugar y la fecha</a>
                     <a class="nav-link" href="FrontController#form">Conviertete en orador</a>
                     <a class="nav-link" href="#tickets">Comprar tickets</a>
-                    <a class="nav-link text-warning" href="vistas/backoffice">Back Office</a>
+                    <a class="nav-link text-warning" href= "FrontController?accion=backoffice"">Back Office</a>
                 </div>
             </div>
         </div>
@@ -67,19 +67,19 @@ pageEncoding="UTF-8"%>
         </div>
 
 
-        <form class="ticketsForm" action="">
+        <form class="ticketsForm" action="FrontController?accion=insertar" method = "POST">
             <div class="tickets-form">
-                <input type="text" class="ticketsFirstName" name="Nombre" placeholder="Nombre">
-                <input type="text" class="ticketsLastName" name="Apellido" placeholder="Apellido">
-                <input type="email" class="ticketsEmail" name="Email" placeholder="E-mail">
+                <input type="text" class="ticketsFirstName" name="nombre" placeholder="Nombre">
+                <input type="text" class="ticketsLastName" name="apellido" placeholder="Apellido">
+                <input type="email" class="ticketsEmail" name="mail" placeholder="E-mail">
                 <div class="labelTicketsQuantity">
                     <label for="Cantidad">Cantidad</label>
-                    <input id="ticketsQuantity" type="text" class="ticketsQuantity" name="Cantidad"
+                    <input id="cant" type="text" class="ticketsQuantity" name="cant"
                         placeholder="Cantidad">
                 </div>
                 <div class="labelTicketsCategory">
                     <label for="Categoria">Categoria</label>
-                    <select name="Categoria" class="ticketsCategory">
+                    <select name="categoria" class="ticketsCategory">
                         <option value="Estudiante">Estudiante</option>
                         <option value="Trainee">Trainee</option>
                         <option value="Junior">Junior</option>
@@ -89,7 +89,7 @@ pageEncoding="UTF-8"%>
                 <output class="ticketsOutput"><span class="ticketsValue">Total a pagar: </span></output>
                 <button id="ticketsBorrar" type="reset" class="btnTickets" name="Borrar">Borrar</button>
                 <button id="ticketsResumen" class="btnTickets" name="Resumen">Resumen</button>
-                <button id="ticketsResumen" class="btnTickets" name="Comprar" action="FrontController?accion=insertarTicket" method="post">Comprar</button>
+                <button id="ticketsResumen" class="btnTickets" name="insertar" >Comprar</button>
                 
             </div>
         </form>

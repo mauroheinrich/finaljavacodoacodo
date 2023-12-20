@@ -49,54 +49,7 @@ public class FrontController extends HttpServlet {
 		accion=request.getParameter("accion");
 		
 		
-		/* if(accion==null||accion.isEmpty())
-		{
-			dispatcher=request.getRequestDispatcher("vistas/conferencia.jsp");
-		}
-		else if(accion.equals("comprar"))
-		{
-			dispatcher=request.getRequestDispatcher("vistas/comprar-tickets.jsp");
-		}
-		else if(accion.equals("backoffice"))
-		{
-			dispatcher=request.getRequestDispatcher("vistas/backoffice.jsp");
-		}
-		else if(accion.equals("panelTickets")) {
-			dispatcher=request.getRequestDispatcher("vistas/panel-tickets.jsp");
-		}
-		else if(accion.equals("panelOradores")) {
-			dispatcher=request.getRequestDispatcher("vistas/panel-oradores.jsp");
-		}
-		else if(accion.equals("eliminar"))
-		{
-			int id=Integer.parseInt(request.getParameter("id"));
-			ticketDAO.eliminar(id);
-		}
-		else if(accion.equals("eliminarOrador")) 
-		{
-			int id=Integer.parseInt(request.getParameter("id"));
-			oradorDAO.eliminar(id);
-			dispatcher=request.getRequestDispatcher("vistas/panel-oradores.jsp");
-		}
-		else if(accion.equals("volver"))
-		{
-			dispatcher=request.getRequestDispatcher("vistas/conferencia.jsp");
-		}
-		else if(accion.equals("insertar"))
-		{
-			String nombre=request.getParameter("nombre");
-			String apellido=request.getParameter("apellido");
-			String mail=request.getParameter("mail");			
-			int cant=Integer.parseInt(request.getParameter("cant"));			
-			int categoria=Integer.parseInt(request.getParameter("categoria"));
-			float total;
-			
-			//total = tendria que ser el resultado de cantidad de ticket por tipoTicket
-			
-			TicketCompra ticket=new TicketCompra(0,nombre,apellido,mail,cant,categoria,0);
-			ticketDAO.insertarTicket(ticket);
-			dispatcher=request.getRequestDispatcher("vistas/conferencia.jsp");
-		} */
+		
 		if(accion==null || accion.isEmpty()) {
 			dispatcher=request.getRequestDispatcher("vistas/conferencia.jsp");
 		}
@@ -124,34 +77,46 @@ public class FrontController extends HttpServlet {
 			String apellido=request.getParameter("apellido");
 			String mail=request.getParameter("mail");			
 			int cant=Integer.parseInt(request.getParameter("cant"));			
-			int categoria=Integer.parseInt(request.getParameter("categoria"));
-			
-			float total=0;
-			int valorTicket= 200;
-			
-			switch(categoria) {
-			  case 1:
-				  total=cant*(valorTicket - (valorTicket * 0.8f)); //categoria "Estudiante" - descuento del 80%
-			    break;
-			  case 2:
-				  total=cant*(valorTicket - (valorTicket * 0.5f)); //categoria "Trainee" - descuento del 50%
-			    break;
-			  case 3:
-				  total=cant*(valorTicket - (valorTicket * 0.15f)); //categoria "Junior" - descuento del 15%
-				break;
+			String categoriaStr = request.getParameter("categoria");
+			int categoria;
+
+			if ("Estudiante".equals(categoriaStr)) {
+			    categoria = 1;
+			} else if ("Trainee".equals(categoriaStr)) {
+			    categoria = 2;
+			} else if ("Junior".equals(categoriaStr)) {
+			    categoria = 3;
+			} else {
+			    // Manejar el caso en que la categoría no sea válida
+			    categoria = 0; // Otra categoría o valor predeterminado
 			}
-			
-			TicketCompra ticket=new TicketCompra(0,nombre,apellido,mail,cant,categoria,total);
+
+			float total = 0;
+			int valorTicket = 200;
+
+			switch (categoria) {
+			    case 1:
+			        total = cant * (valorTicket - (valorTicket * 0.8f)); // categoría "Estudiante" - descuento del 80%
+			        break;
+			    case 2:
+			        total = cant * (valorTicket - (valorTicket * 0.5f)); // categoría "Trainee" - descuento del 50%
+			        break;
+			    case 3:
+			        total = cant * (valorTicket - (valorTicket * 0.15f)); // categoría "Junior" - descuento del 15%
+			        break;
+			}
+
+			TicketCompra ticket = new TicketCompra(0, nombre, apellido, mail, cant, categoria, total);
 			ticketDAO.insertarTicket(ticket);
-			dispatcher=request.getRequestDispatcher("vistas/comprar-tickets.jsp");	
-			
+			dispatcher = request.getRequestDispatcher("vistas/comprar-tickets.jsp");
+	
 		}
 		else if(accion.equals("insertarOrador")) {
-			String nombreOrador=request.getParameter("nombre");
-			String apellidoOrador=request.getParameter("apellido");
-			String mensajeOrador=request.getParameter("msj");			
+			String nombreOrador=request.getParameter("nombreOrador");
+			String apellidoOrador=request.getParameter("apellidoOrador");
+			String tematicaOrador=request.getParameter("tematicaOrador");			
 			
-			Oradores orador=new Oradores(0,nombreOrador,apellidoOrador,mensajeOrador);
+			Oradores orador=new Oradores(0,nombreOrador,apellidoOrador,tematicaOrador);
 			oradorDAO.insertarOradores(orador);
 			dispatcher=request.getRequestDispatcher("vistas/backoffice.jsp");
 		}

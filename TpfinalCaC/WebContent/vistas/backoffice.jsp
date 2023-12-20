@@ -40,7 +40,7 @@
 						     <div class= "col-6 text-aline-center ">
 						      <i class="fa-solid fa-person-chalkboard fa-bounce fa-2xl"></i>
 
-				          	 <a class="btn btn-info" href="FrontController?accion=panel-oradores">Control de Oradores</a>
+				          	 <a class="btn btn-info" href="FrontController?accion=panelOradores">Control de Oradores</a>
 						     </div>
 			        		 </div>
 			        		 

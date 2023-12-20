@@ -58,20 +58,19 @@ public class TicketDAO
 	public boolean insertarTicket(TicketCompra ticket) 
 	{
 		PreparedStatement ps;
-		float total;		
+		//float total;		
 		try
 		{
-			ps=conexion.prepareStatement("insert into tickets(nombre,apellido,mail,cant,tipo_ticket,total_facturado) "
-					+ "values (?,?,?,?,?,?)");
-			//ps=conexion.prepareStatement("insert into tickets(nombre,apellido,mail,cant,tipo_ticket,total_facturado) values (?,?,?,?,?,?)");
+			ps=conexion.prepareStatement("insert into tickets(nombre,apellido,mail,cant,tipo_ticket,total_facturado) " + "values (?,?,?,?,?,?)");
+			
 			
 			ps.setString(1, ticket.getNombre());
 			ps.setString(2, ticket.getApellido());
 			ps.setString(3, ticket.getMail());
 			ps.setInt(4, ticket.getCant());
-			ps.setInt(5, ticket.getTipo_ticket());	//total facturado podriamos poner aca			
-			
+			ps.setInt(5, ticket.getTipo_ticket());			
 			ps.setFloat(6, ticket.getTotal_facturado());
+			
 			ps.execute();
 			return true;
 		}

@@ -35,9 +35,9 @@ public class OradoresDAO {
 				int id=rs.getInt("id");
 				String nombre=rs.getString("nombre");
 				String apellido=rs.getString("apellido");
-				String msj=rs.getString("msj");
+				String tematica=rs.getString("tematica");
 				
-				Oradores orador=new Oradores(id,nombre,apellido,msj);
+				Oradores orador=new Oradores(id,nombre,apellido,tematica);
 				listaOrador.add(orador);
 			}
 			return listaOrador;				
@@ -57,11 +57,11 @@ public class OradoresDAO {
 			
 		try
 		{
-			ps=conexion.prepareStatement("insert into oradores(nombre,apellido,msj) " + "values (?,?,?)");
+			ps=conexion.prepareStatement("insert into oradores(nombre,apellido,tematica) " + "values (?,?,?)");
 						
 			ps.setString(1, oradores.getNombre());
 			ps.setString(2, oradores.getApellido());
-			ps.setString(3, oradores.getMsj());
+			ps.setString(3, oradores.getTematica());
 			
 			ps.execute();
 			return true;
