@@ -7,15 +7,19 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+   	<link rel="stylesheet" href="css/style_backoffice.css">
 	<script src="https://kit.fontawesome.com/2cbbc87d30.js" crossorigin="anonymous"></script>
 	<title>Backoffice</title>
 </head>
 <body>
+	
 	<div class="container">
 		<!-- Panel de Tickets -->
+		<div>
 		<h2 class="py-3">Panel de Tickets</h2>
+		</div>
 	 	<div class="row">
 	 		<div class="table-responsive">
 				<table class="table table-hover">
@@ -31,29 +35,27 @@
 					      <th scope="col" class="text-center">Eliminar</th>
 					    </tr>
 					</thead>
-										
-					<%
-					List<TicketCompra> resultado=null;
-					TicketDAO ticket=new TicketDAO();
-					resultado=ticket.listarTicket();
-					int totalFacturado=0;
-					
-					for(int x=0;x<resultado.size();x++) {
-						String rutaE="FrontController?accion=eliminar&id="+resultado.get(x).getId();	
-						String tipoTicketTexto;
-						
-						if(resultado.get(x).getTipo_ticket()==1) {
-							tipoTicketTexto="Estudiante";
-						}
-						else if(resultado.get(x).getTipo_ticket()==2) {
-							tipoTicketTexto="Trainee";
-						}
-						else {
-							tipoTicketTexto="Junior";
-						}
-					%>
-					
 					<tbody>
+						<%
+						List<TicketCompra> resultado=null;
+						TicketDAO ticket=new TicketDAO();
+						resultado=ticket.listarTicket();
+						int totalFacturado=0;
+						
+						for(int x=0;x<resultado.size();x++) {
+							String rutaE="FrontController?accion=eliminar&id="+resultado.get(x).getId();	
+							String tipoTicketTexto;
+							
+							if(resultado.get(x).getTipo_ticket()==1) {
+								tipoTicketTexto="Estudiante";
+							}
+							else if(resultado.get(x).getTipo_ticket()==2) {
+								tipoTicketTexto="Trainee";
+							}
+							else {
+								tipoTicketTexto="Junior";
+							}
+						%>
 						<tr>
 							<td><%=resultado.get(x).getId()%></td>
 						  	<td><%=resultado.get(x).getNombre()%></td>
@@ -87,12 +89,11 @@
 						    </div>
 						  </div>
 						</div>
-					
-					<%
-						totalFacturado+=resultado.get(x).getTotal_facturado();
-					}
-					%>		
-					
+						
+						<%
+							totalFacturado+=resultado.get(x).getTotal_facturado();
+						}
+						%>		
 					</tbody>								
 				</table>
 			</div>	 	

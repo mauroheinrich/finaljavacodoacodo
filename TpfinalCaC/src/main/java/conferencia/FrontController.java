@@ -53,11 +53,34 @@ public class FrontController extends HttpServlet {
 		if(accion==null || accion.isEmpty()) {
 			dispatcher=request.getRequestDispatcher("vistas/conferencia.jsp");
 		}
+		else if (accion.equals("login")) {
+		    String username = request.getParameter("username");
+		    String password = request.getParameter("password");
+
+		    // Verifica las credenciales (esto es muy básico, en un entorno real deberías usar un sistema más seguro)
+		    if ("admin".equals(username) && "12345".equals(password)) {
+		        // Credenciales válidas, establece una variable de sesión para marcar al usuario como autenticado
+		        request.getSession().setAttribute("usuarioAutenticado", true);
+		        dispatcher = request.getRequestDispatcher("vistas/backoffice.jsp");
+		    } else {
+		        // Credenciales incorrectas, podrías redirigir a una página de error o volver al formulario de inicio de sesión
+		        dispatcher = request.getRequestDispatcher("vistas/error-login.jsp");
+		    }
+		}
 		else if(accion.equals("comprar")) {
 			dispatcher=request.getRequestDispatcher("vistas/comprar-tickets.jsp");
 		}
-		else if(accion.equals("backoffice")) {
-			dispatcher=request.getRequestDispatcher("vistas/backoffice.jsp");
+		else if (accion.equals("backoffice")) {
+		    // Verifica si el usuario está autenticado
+		    Boolean usuarioAutenticado = (Boolean) request.getSession().getAttribute("usuarioAutenticado");
+
+		    if (usuarioAutenticado != null && usuarioAutenticado) {
+		        // El usuario está autenticado, redirige a la página de backoffice
+		        dispatcher = request.getRequestDispatcher("vistas/backoffice.jsp");
+		    } else {
+		        // El usuario no está autenticado, redirige a la página de inicio de sesión
+		        dispatcher = request.getRequestDispatcher("vistas/login.jsp");
+		    }
 		}
 		else if(accion.equals("eliminar")) {
 			int id=Integer.parseInt(request.getParameter("id"));

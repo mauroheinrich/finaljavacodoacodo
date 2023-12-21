@@ -1,0 +1,75 @@
+@charset "UTF-8";
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body{
+            background-color: #495057;
+            height:100vh;
+        }
+      
+.body-login{
+	display: flex;
+	flex-direction: column;
+	
+}
+.body-login h2{
+	color: #ced4da;
+	text-align: center;
+}
+
+.container {
+			 margin-top: 50px;
+            text-align: center;       	
+             height: 100vh;
+            }
+.container-login{
+			display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+}
+
+ .form-container {
+            background-color: #495057;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 450px;
+        }
+ .form-container-login{
+ 			background-color: #495057;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 50%;
+            align-items: center;
+            justify-content: center;
+ }       
+.form-container-login button{
+	display: block;
+}
+ .form-label {
+            color: #FFC900;
+  			}
+
+ .form-control {
+            background-color: #FFC900;
+            color: #495057;
+  			}
+
+  .btn-primary {
+            background-color: #FFC900;
+            border-color: #FFC900;
+              /* display: block; */
+        	margin: auto; 
+        	margin-top: 15px;
+        	border-color: #FFC900;
+        	text-align: center;
+ 			 }
+
+.table > tbody > tr {
+	color: #ced4da;
+}
