@@ -68,17 +68,17 @@ Este proyecto se distribuye bajo la licencia MIT. Para más información, consul
 **Estructura del proyecto**
 
 └── finaljavacodoacodo/
-    ├── README.md
-    ├── TpfinalCaC
-    │   ├── .classpath
-    │   ├── .gitignore
-    │   ├── .project
-    │   ├── .settings
-    │   ├── Users
-    │   ├── WebContent
-    │   ├── pom.xml
-    │   └── src
-    └── proyectofinalcodoacodo.sql
+      ├── README.md
+      ├── TpfinalCaC
+      │ ├── .classpath
+      │ ├── .gitignore
+      │ ├── .project
+      │ ├── .settings
+      │ ├── Users
+      │ ├── WebContent
+      │ ├── pom.xml
+      │ └── src
+      └── proyectofinalcodoacodo.sql
 
 
 
