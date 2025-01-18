@@ -51,9 +51,12 @@ El proyecto consiste en una aplicación web desarrollada en Java que integra tec
    -Abrir un navegador web y navegar a http://localhost:8080.
 
 **Video Demostrativo**
-Para una demostración en video del proyecto, puedes visitar el siguiente enlace:
+   -Para una demostración en video del proyecto, puedes visitar el siguiente enlace:
+   -Acceso al video de Youtube:
+   -https://youtu.be/gOwoCv6hCQo?si=n1KWxBrts7gIGpYt
 
-Trabajo Final Integrador Java Full Stack Codo a Codo
+
+**Trabajo Final Integrador Java Full Stack Codo a Codo**
 
 Contribuciones
 Las contribuciones al proyecto son bienvenidas. Si deseas mejorar alguna funcionalidad o corregir errores, por favor, abre un issue o envía un pull request.
@@ -79,6 +82,7 @@ Este proyecto se distribuye bajo la licencia MIT. Para más información, consul
 
 
 
+
 <h3 align="left">Conéctate conmigo:</h3>
 <p align="left">
   <a href="https://twitter.com/mauroheinrich" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="mauroheinrich" height="30" width="40" /></a>
@@ -92,5 +96,4 @@ Este proyecto se distribuye bajo la licencia MIT. Para más información, consul
 
 
 
-Acceso al video de Youtube:
-https://youtu.be/gOwoCv6hCQo?si=n1KWxBrts7gIGpYt
+
